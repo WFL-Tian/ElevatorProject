@@ -1,0 +1,157 @@
+# 物业公司管理栏目详细API
+
+### 物业公司基本信息管理
+## 1.管理页初始化url(根据传入的companyType后台判断是什么类型的公司)
+```
+GET /xgdt/company/{companyType}
+```
+
+参数
+```
+companyShStatus: 1 //不为空说明默认查找所有，否则就按状态查
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+        "companyId": 11, //公司编号
+        "companyName": "公司名称",
+        "companyPhone": "122312312", //公司电话
+        "companyEmail": "12121212@qq.com",
+        "companyType": "公司具体类型名称",
+        "companyShStatus": "审核通过"
+        "enterprisefax": "传真电话",
+        "companyAddress": "公司地址",
+        "legalrepresentative": "法定代表人",
+        "legalrepresentativePhone": "法定代表人手机",
+        "organization": "组织机构代码"
+
+    ]
+```
+
+## 2.增添
+2.1 增添初始化
+```
+POST /xgdt/company/addInit
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "companyTypeList": [{
+                "id": 1,
+                "name": "维保公司"  //公司具体类型名称
+                }]
+    ]
+```
+
+2.2 增添按钮
+```
+POST /xgdt/company/add
+```
+
+参数
+```
+companyName: "公司名称",
+companyPhone: "122312312", //公司电话
+companyEmail: "12121212@qq.com",
+companyShStatus: 1,
+companyType: 1,
+enterprisefax: "传真电话",
+companyAddress: "公司地址",
+legalrepresentative: "法定代表人",
+legalrepresentativePhone: "法定代表人手机",
+organization: "组织机构代码"
+
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+          //添加成功自动刷新页面
+    ]
+```
+
+## 3.修改
+3.1 修改初始化
+```
+POST /xgdt/company/modifyInit
+```
+
+参数
+```
+companyId: 11, //公司编号
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            //基本信息和查询的基本信息一样，会额外添加下拉列表的信息，前端需要匹配后默认显示原先的数据，例如楼盘和物业公司、维保公司等
+          "companyTypeList": [{
+                "id": 1,
+                "name": "维保公司"  //公司具体类型名称
+                }]
+    ]
+```
+
+3.2 修改按钮
+```
+POST /xgdt/company/modify
+```
+
+参数
+```
+"companyId": 11, //公司编号
+"companyName": "公司名称",
+"companyPhone": "122312312", //公司电话
+"companyEmail": "12121212@qq.com",
+"companyType": 1,
+companyShStatus: 1,
+"enterprisefax": "传真电话",
+"companyAddress": "公司地址",
+"legalrepresentative": "法定代表人",
+"legalrepresentativePhone": "法定代表人手机",
+"organization": "组织机构代码"
+
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+          //添加成功自动刷新页面
+    ]
+```
+
+## 4.删除
+```
+DELETE /xgdt/company/delete
+```
+
+参数
+```
+"companyId": 11, //公司编号
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+    //删除成功自动刷新页面
+    ]
+```
+

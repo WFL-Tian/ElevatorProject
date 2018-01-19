@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.akk.elevatorproject.mapper.ShenpiMapper" >
+  <resultMap id="BaseResultMap" type="com.akk.elevatorproject.entity.Shenpi" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="shenpi_id" property="shenpiId" jdbcType="VARCHAR" />
+    <result column="develop_id" property="developId" jdbcType="INTEGER" />
+    <result column="loupan_id" property="loupanId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="shenpi_time" property="shenpiTime" jdbcType="TIMESTAMP" />
+    <result column="shenpi_status" property="shenpiStatus" jdbcType="INTEGER" />
+    <result column="shenpi_result" property="shenpiResult" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

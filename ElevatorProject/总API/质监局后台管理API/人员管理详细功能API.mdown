@@ -1,0 +1,589 @@
+# 详细功能API
+
+### 人员管理
+#### 1.物业人员管理(增删改查)
+添加初始化
+```
+POST /xgdt/admin/wuye/addInit
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            {
+              "userType": 3,
+              "userTypeName": "开发商"
+            },
+            {
+              "userType": 4,
+              "userTypeName": "物业人员"
+            },
+            {
+              "userType": 5,
+              "userTypeName": "维保人员"
+            }
+    ]
+```
+
+添加物业人员
+```
+POST /xgdt/admin/wuye/add
+```
+
+参数
+```
+username = "jdw"
+password = "jdw123"
+realname = "戢德旺"
+gender = "男"
+phoneNumber = "15871"
+email = "123@qq.com"
+qq = "8056"
+userType = 4
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+    //添加成功自动刷新页面
+    ]
+```
+
+
+删除物业人员
+```
+POST /xgdt/admin/wuye/delete
+```
+
+参数
+```
+userId = 1
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+      //删除成功自动刷新页面
+    ]
+```
+
+修改初始化
+```
+POST /xgdt/admin/wuye/modifyInit
+```
+
+参数
+```
+userId = 135
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "username" : "jdw" , //用户名
+            "password" : "jdw123" , //密码
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 4 //用户类型
+    ]
+```
+
+修改物业人员
+```
+POST /xgdt/admin/wuye/modify
+```
+
+参数
+```
+username = "jdw"
+password = "jdw123"
+realname = "戢德旺"
+gender = "男"
+phoneNumber = "15871"
+email = "123@qq.com"
+qq = "8056"
+userType = 4
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 4 //用户类型
+            //修改完成后显示新的信息
+    ]
+```
+
+
+查询物业人员
+```
+POST /xgdt/admin/wuye/search
+```
+
+参数
+```
+userId = 1
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 4 //用户类型
+    ]
+```
+
+#### 2.维保人员管理(增删改查)
+添加初始化
+```
+POST /xgdt/admin/weibao/addInit
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            {
+              "userType": 3,
+              "userTypeName": "开发商"
+            },
+            {
+              "userType": 4,
+              "userTypeName": "物业人员"
+            },
+            {
+              "userType": 5,
+              "userTypeName": "维保人员"
+            }
+    ]
+```
+
+添加维保人员
+```
+POST /xgdt/admin/weibao/add
+```
+
+参数
+```
+username = "jdw"
+password = "jdw123"
+realname = "戢德旺"
+gender = "男"
+phoneNumber = "15871"
+email = "123@qq.com"
+qq = "8056"
+userType = 5
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+    //添加成功自动刷新页面
+    ]
+```
+
+
+删除维保人员
+```
+POST /xgdt/admin/weibao/delete
+```
+
+参数
+```
+userId = 1
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+      //删除成功自动刷新页面
+    ]
+```
+
+修改初始化
+```
+POST /xgdt/admin/weibao/modifyInit
+```
+
+参数
+```
+userId = 135
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "username" : "jdw" , //用户名
+            "password" : "jdw123" , //密码
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 4 //用户类型
+    ]
+```
+
+修改维保人员
+```
+POST /xgdt/admin/weibao/modify
+```
+
+参数
+```
+username = "jdw"
+password = "jdw123"
+realname = "戢德旺"
+gender = "男"
+phoneNumber = "15871"
+email = "123@qq.com"
+qq = "8056"
+userType = 5
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 5 //用户类型
+             //修改完成后显示新的信息
+    ]
+```
+
+
+查询维保人员
+```
+POST /xgdt/admin/weibao/search
+```
+
+参数
+```
+userId = 1
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 5 //用户类型
+    ]
+```
+#### 3.开发商人员管理(增删改查)
+添加初始化
+```
+POST /xgdt/admin/develop/init
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            {
+              "userType": 3,
+              "userTypeName": "开发商"
+            },
+            {
+              "userType": 4,
+              "userTypeName": "物业人员"
+            },
+            {
+              "userType": 5,
+              "userTypeName": "维保人员"
+            }
+    ]
+```
+
+添加开发商
+```
+POST /xgdt/admin/develop/add
+```
+
+参数
+```
+username = "jdw"
+password = "jdw123"
+realname = "戢德旺"
+gender = "男"
+phoneNumber = "15871"
+email = "123@qq.com"
+qq = "8056"
+userType = 3
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+        //添加成功自动刷新页面
+    ]
+```
+
+
+删除开发商
+```
+POST /xgdt/admin/develop/delete
+```
+
+参数
+```
+userId = 1
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+      //删除成功自动刷新页面
+    ]
+```
+
+
+修改初始化
+```
+POST /xgdt/admin/develop/modifyInit
+```
+
+参数
+```
+userId = 135
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "username" : "jdw" , //用户名
+            "password" : "jdw123" , //密码
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 4 //用户类型
+    ]
+```
+
+
+修改开发商
+```
+POST /xgdt/admin/develop/modify
+```
+
+参数
+```
+username = "jdw"
+password = "jdw123"
+realname = "戢德旺"
+gender = "男"
+phoneNumber = "15871"
+email = "123@qq.com"
+qq = "8056"
+userType = 3
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 3 //用户类型
+
+            //修改完成后显示新的信息
+    ]
+```
+
+
+查询开发商
+```
+POST /xgdt/admin/develop/search
+```
+
+参数
+```
+userId = 1
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "realname": "戢德旺", //真实姓名
+            "gender": "男", //性别
+            "phoneNumber": "15871", //电话号码
+            "email": "123@qq.com", //邮箱
+            "qq": "8056", //qq号
+            "userType": 3 //用户类型
+    ]
+```
+
+### 审查人员
+#### 1.审批表管理(审批通过或不通过)
+审批表管理初始化
+```
+POST /xgdt/shenpi/init
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            {
+              "shenpiStatus": 0,  //审批状态的值
+              "shenpiStatusName": "未审批"  //审批状态名称
+            },
+            {
+              "shenpiStatus": 1,
+              "shenpiStatusName": "审批通过"
+            },
+            {
+              "shenpiStatus": 2,
+              "shenpiStatusName": "审批未通过"
+            }
+    ]
+```
+
+修改初始化
+```
+POST /xgdt/admin/shenpi/modifyInit
+```
+
+参数
+```
+shenpiId = 1  //用户id
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "shenpiId": 11, //审批请求id
+            "companyId": "123", //  开发商id
+            "shenpiStatus": 3, // 审批状态
+            "elevatorId": "135", //电梯id
+            "createTime": "2018-01-01", //申请日期
+            "shenpiTime": "2018-01-02", //审批处理日期
+            "shenpiResult": "文件缺失,审批不通过" //审批结果说明
+    ]
+```
+
+修改审批状态
+```
+POST /xgdt/shenpi/modify
+```
+
+参数
+```
+shenpiId = 1  //用户id
+shenpiStatus = 1  //审批状态的值
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "shenpiId": "11", //
+            "companyId": "123", //  开发商id
+            "shenpiStatus": 3, // 审批状态
+            "elevatorId": "135", //电梯id
+            "createTime": "2018-01-01", //申请日期
+            "shenpiTime": "2018-01-02", //审批处理日期
+            "shenpiResult": "文件缺失,审批不通过", //审批结果说明
+            //修改完成后显示新的信息
+    ]
+```
+
+查看审批状态状态
+```
+POST /xgdt/shenpi/search
+```
+
+参数
+```
+shenpiId  = 11, //审批请求id
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "shenpiId": 11, //审批请求id
+            "companyId": "123", //  开发商id
+            "shenpiStatus": 3, // 审批状态
+            "elevatorId": "135", //电梯id
+            "createTime": "2018-01-01", //申请日期
+            "shenpiTime": "2018-01-02", //审批处理日期
+            "shenpiResult": "文件缺失,审批不通过" //审批结果说明
+    ]
+```
