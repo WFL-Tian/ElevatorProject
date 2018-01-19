@@ -1,0 +1,269 @@
+# 电梯管理栏目详细功能API
+
+## 首页(信息统计)
+### 各种数据情况统计
+```
+GET /xgdt/index/elevator
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+          "badelevator": 55,    //损坏锻体数量
+          "goodelevator": 66,     //正常电梯数量
+          
+    ]
+```
+
+
+### 电梯管理栏目
+### 电梯基本信息管理
+## 1.电梯信息管理页初始化url
+```
+GET /xgdt/elevator
+```
+
+参数
+```
+pageIndex: 1, //页码
+pageSize: 10, //本页数据量
+elevatorType: 1, //电梯类型
+elevatorStatus: 1, //如果传递了就专门查询此条件的数据
+
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+        "elevatorList": [{
+            "elevatorId": "123123123"  //电梯Id
+            "elevatorType": "电梯类型", //电梯类型
+            "elevatorStatus": "正常使用", //后台给数据
+            "factorNumber": "gegr123123", //出厂编号
+            "installCompany": "xxx公司", //安装单位
+            "phone": "123123123", //开发商电话
+            "floorLevels": 16, //此电梯层数
+            "adminName": "xxx", //安装的安全管理员姓名
+            "madeCompany": "xxx公司", //制造公司
+
+            "productionDate": "1231231123", //传递用时间戳，生产日期格式转变为2019-01-01
+
+            "registrationCode": "字符串", //设备注册代码
+            "equipmentModel": "字符串", //设备型号
+            "loupanAddr": "xx小区", //所在楼盘的名称
+            "detailAddr": "详细地址：某个单元楼", //详细地址，商场的东侧之类的
+
+            "developCompanyName": "维保公司name",
+            "developCompanyPhone": "维保公司电话",
+            "developCompanyEmail": "维保公司Email",
+            "developCompanyFax": "维保公司传真",
+            "developCompanyAddr": "维保公司地址",
+            "developCompanylegalName": "维保公司法定代表人信息",
+            "developCompanylegalPhone": "维保公司法定代表人电话",
+            "developCompanyOcode": "维保公司组织机构代码",
+            "developCompanyShStatus": 1, //维保公司审核状态
+
+            "weibaoCompanyName": "维保公司name",
+            "weibaoCompanyPhone": "维保公司电话",
+            "weibaoCompanyEmail": "维保公司Email",
+            "weibaoCompanyFax": "维保公司传真",
+            "weibaoCompanyAddr": "维保公司地址",
+            "weibaoCompanylegalName": "维保公司法定代表人信息",
+            "weibaoCompanylegalPhone": "维保公司法定代表人电话",
+            "weibaoCompanyOcode": "维保公司组织机构代码",
+            "weibaoCompanyShStatus": 1, //维保公司审核状态
+
+            "wuyeCompanyName": "物业公司name",
+            "wuyeCompanyPhone": "物业公司电话",
+            "wuyeCompanyEmail": "物业公司Email",
+            "wuyeCompanyFax": "物业公司传真",
+            "wuyeCompanyAddr": "物业公司地址",
+            "wuyeCompanylegalName": "物业公司法定代表人信息",
+            "wuyeCompanylegalPhone": "物业公司法定代表人电话",
+            "wuyeCompanyOcode": "物业公司组织机构代码",
+            "wuyeCompanyShStatus": 1, //维保公司审核状态
+
+            "createTime": "2017-01-01" //创建时间
+            }]
+            
+    ]
+```
+
+
+## 2.增添
+2.1 增添初始化
+```
+POST /xgdt/elevator/addInit
+```
+
+参数
+```
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            "elevatorTypeList": [{
+                "id": 1,
+                "name": "手扶电梯"  //具体类型
+                }],
+            "elevatorStatusList": [{
+                "id": 1, //状态id
+                "name": 正常运行" //具体状态
+                }], 
+            "loupanList": [{
+                "id": 1,
+                "name": "东区" //楼盘地址
+                }],
+            "wuyeList": [{
+                "id": 1,
+                "name": "西区" //物业地址
+                }],
+            "weibaoList": [{
+                "id": 1,
+                "name": "孝感乾坤大道" //维保地址
+                }]
+    ]
+```
+
+2.2 增添按钮
+```
+POST /xgdt/elevator/add
+```
+
+参数
+```
+elevatorType: "手扶电梯",  //后续可能增加下拉列表选择
+elevatorStatus: 1, //传递数字代表状态，下拉列表显示状态具体信息
+factorNumber: "123123123", //出厂编号
+installCompany: "xxx公司", //安装单位
+phone: "123123123", //开发商电话
+floorLevels: 16, //此电梯层数
+adminName: "xxx", //安装的安全管理员姓名
+madeCompany: "xxx公司", //制造公司
+productionDate: "1231231123", //传递用时间戳，生产日期格式转变为2019-01-01
+registrationCode: "字符串", //设备注册代码
+equipmentModel: "字符串", //设备型号
+loupanId: 12, //楼盘id,下拉列表选择
+detailAddr: "东区", //详细地址，商场的东侧之类的
+wuyeId: 10, //物业单位Id,下拉列表选择
+weibaoId: 11, //维保单位Id,下拉列表选择
+
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+          //添加成功自动刷新页面
+    ]
+```
+
+## 3.修改
+3.1 修改初始化
+```
+POST /xgdt/elevator/modifyInit
+```
+
+参数
+```
+elevatorId: "123123123"  //电梯Id
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+            //基本信息和查询的基本信息一样，会额外添加下拉列表的信息，前端需要匹配后默认显示原先的数据，例如楼盘和物业公司、维保公司等
+          "elevatorTypeList": [{
+                "id": 1,
+                "name": "手扶电梯"  //具体类型
+                }],
+            "elevatorStatusList": [{
+                "id": 1, //状态id
+                "name": 正常运行" //具体状态
+                }], 
+            "loupanList": [{
+                "id": 1,
+                "name": "东区" //楼盘地址
+                }],
+            "wuyeList": [{
+                "id": 1,
+                "name": "西区" //物业地址
+                }],
+            "weibaoList": [{
+                "id": 1,
+                "name": "孝感乾坤大道" //维保地址
+                }]
+    ]
+```
+
+3.2 修改按钮
+```
+POST /xgdt/elevator/modify
+```
+
+参数
+```
+elevatorId: "123123123"  //电梯Id
+elevatorType: "手扶电梯",  //后续可能增加下拉列表选择
+elevatorStatus: 1, //传递数字代表状态，下拉列表显示状态具体信息
+factorNumber: "123123123", //出厂编号
+installCompany: "xxx公司", //安装单位
+phone: "123123123", //开发商电话
+floorLevels: 16, //此电梯层数
+adminName: "xxx", //安装的安全管理员姓名
+madeCompany: "xxx公司", //制造公司
+productionDate: "1231231123", //传递用时间戳，生产日期格式转变为2019-01-01
+registrationCode: "字符串", //设备注册代码
+equipmentModel: "字符串", //设备型号
+loupanId: 12, //楼盘id,下拉列表选择
+detailAddr: "东区", //详细地址，商场的东侧之类的
+wuyeId: 10, //物业单位Id,下拉列表选择
+weibaoId: 11, //维保单位Id,下拉列表选择
+
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+          //添加成功自动刷新页面
+    ]
+```
+
+## 4.删除
+```
+DELETE /xgdt/elevator/delete
+```
+
+参数
+```
+elevatorId: "123123123"  //电梯Id
+```
+
+返回
+```
+    "code": 0,
+    "msg": "成功",
+    "data": [
+    //删除成功自动刷新页面
+    ]
+```
+
+
+
+

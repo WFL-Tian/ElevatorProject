@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.akk.elevatorproject.mapper.CompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.akk.elevatorproject.entity.Company" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="company_id" property="companyId" jdbcType="INTEGER" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="company_phone" property="companyPhone" jdbcType="VARCHAR" />
+    <result column="company_email" property="companyEmail" jdbcType="VARCHAR" />
+    <result column="company_sh_status" property="companyShStatus" jdbcType="INTEGER" />
+    <result column="company_type" property="companyType" jdbcType="INTEGER" />
+    <result column="enterprisefax" property="enterprisefax" jdbcType="VARCHAR" />
+    <result column="company_address" property="companyAddress" jdbcType="VARCHAR" />
+    <result column="legalrepresentative" property="legalrepresentative" jdbcType="VARCHAR" />
+    <result column="legalrepresentative_phone" property="legalrepresentativePhone" jdbcType="VARCHAR" />
+    <result column="organization_code" property="organizationCode" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>
