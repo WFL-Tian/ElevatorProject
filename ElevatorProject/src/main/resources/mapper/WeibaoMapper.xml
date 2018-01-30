@@ -9,7 +9,20 @@
     <result column="elevator_id" property="elevatorId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="elevator_status" property="elevatorStatus" jdbcType="INTEGER" />
+    <result column="weibao_type" property="weibaoType" jdbcType="INTEGER" />
     <result column="weibao_desc" property="weibaoDesc" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="queryWeibaoList" resultMap="BaseResultMap">
+    select * from tb_weibao weibao where weibao.elevator_id=#{weibaoCondition.elevatorId} ORDER BY create_time DESC
+  </select>
+
+
+
+
+
+
+
 </mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.akk.elevatorproject.mapper.QRMapper" >
+  <resultMap id="BaseResultMap" type="com.akk.elevatorproject.entity.QR" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="qr_id" property="qrId" jdbcType="INTEGER" />
+    <result column="elevator_id" property="elevatorId" jdbcType="VARCHAR" />
+    <result column="creater_id" property="createrId" jdbcType="INTEGER" />
+    <result column="qr_desc" property="qrDesc" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

@@ -9,9 +9,16 @@
     <result column="elevator_id" property="elevatorId" jdbcType="VARCHAR" />
     <result column="help_people" property="helpPeople" jdbcType="INTEGER" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="complaint_type" property="complaintType" jdbcType="INTEGER" />
     <result column="complaint_status" property="complaintStatus" jdbcType="INTEGER" />
     <result column="result_info" property="resultInfo" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="selectComplaintByElevatorId" resultMap="BaseResultMap">
+    select * from tb_complaint complaint where complaint.elevator_id=#{complaintCondition.elevatorId} ORDER BY create_time DESC
+  </select>
+
+
 </mapper>

@@ -17,7 +17,15 @@
     <result column="company_id" property="companyId" jdbcType="INTEGER" />
     <result column="user_type" property="userType" jdbcType="INTEGER" />
     <result column="if_sp_user" property="ifSpUser" jdbcType="INTEGER" />
+    <result column="if_c_admin" property="ifCAdmin" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="queryUser" resultMap="BaseResultMap">
+    select * from tb_user user where user.username = #{userCondition.username}
+  </select>
+
+
+
 </mapper>

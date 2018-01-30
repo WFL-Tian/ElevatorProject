@@ -7,10 +7,9 @@
     -->
     <id column="elevator_id" property="elevatorId" jdbcType="VARCHAR" />
     <result column="elevator_type" property="elevatorType" jdbcType="INTEGER" />
-    <result column="elevator_state" property="elevatorState" jdbcType="INTEGER" />
+    <result column="elevator_status" property="elevatorStatus" jdbcType="INTEGER" />
     <result column="factory_number" property="factoryNumber" jdbcType="VARCHAR" />
     <result column="Install_company" property="installCompany" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="floor_levels" property="floorLevels" jdbcType="INTEGER" />
     <result column="admin_name" property="adminName" jdbcType="VARCHAR" />
     <result column="made_company" property="madeCompany" jdbcType="VARCHAR" />
@@ -21,8 +20,12 @@
     <result column="detail_addr" property="detailAddr" jdbcType="VARCHAR" />
     <result column="develop_id" property="developId" jdbcType="INTEGER" />
     <result column="wuye_id" property="wuyeId" jdbcType="INTEGER" />
-    <result column="weibao_id" property="weibaoId" jdbcType="VARCHAR" />
+    <result column="weibao_id" property="weibaoId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+
+
+
 </mapper>

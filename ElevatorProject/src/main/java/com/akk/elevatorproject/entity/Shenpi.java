@@ -18,8 +18,8 @@ public class Shenpi {
     /**
      * 开发商编号
      */
-    @Column(name = "develop_id")
-    private Integer developId;
+    @Column(name = "company_id")
+    private Integer companyId;
 
     /**
      * 电梯编号

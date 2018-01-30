@@ -12,4 +12,18 @@
     <result column="group_id" property="groupId" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <insert id="batchInsertImg" parameterType="java.util.List">
+    INSERT INTO tb_img(img_id,img_desc,img_name,priority,group_id,create_time) VALUES
+    <foreach collection="list" item="imgList" index="index" separator=",">
+      (
+      #{imgList.imgId},
+      #{imgList.imgDesc},
+      #{imgList.imgName},
+      #{imgList.priority},
+      #{imgList.groupId},
+      #{imgList.createTime}
+      )
+    </foreach>
+  </insert>
 </mapper>

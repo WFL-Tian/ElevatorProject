@@ -76,6 +76,21 @@ public class User {
     private Integer ifSpUser;
 
     /**
+     * 是否是公司管理人员
+     */
+    @Column(name = "if_c_admin")
+    private Integer if_c_admin;
+
+    public Integer getIf_c_admin() {
+        return if_c_admin;
+    }
+
+    public void setIf_c_admin(Integer if_c_admin) {
+        this.if_c_admin = if_c_admin;
+    }
+
+    /**
+
      * 创建时间
      */
     @Column(name = "create_time")

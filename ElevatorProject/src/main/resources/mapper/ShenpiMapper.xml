@@ -6,7 +6,7 @@
       WARNING - @mbggenerated
     -->
     <id column="shenpi_id" property="shenpiId" jdbcType="VARCHAR" />
-    <result column="develop_id" property="developId" jdbcType="INTEGER" />
+    <result column="company_id" property="companyId" jdbcType="INTEGER" />
     <result column="loupan_id" property="loupanId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="shenpi_time" property="shenpiTime" jdbcType="TIMESTAMP" />
