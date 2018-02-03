@@ -12,4 +12,16 @@
     <result column="group_id" property="groupId" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+    <select id="selectImg" resultMap="BaseResultMap">
+        select * from tb_img
+        <where>
+            <if test="img.groupId != null">
+                group_id = #{img.groupId}
+            </if>
+            <if test="img.groupId == null">
+                img_id = #{img.imgId}
+            </if>
+        </where>
+    </select>
 </mapper>

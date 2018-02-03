@@ -6,7 +6,7 @@
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>
-                %d - %msg%n
+                %d - %type%n
             </pattern>
         </layout>
     </appender>
@@ -21,7 +21,7 @@
         </filter>
         <encoder>
             <pattern>
-                %msg%n
+                %type%n
             </pattern>
         </encoder>
         <!--滚动策略-->
@@ -39,7 +39,7 @@
         </filter>
         <encoder>
             <pattern>
-                %msg%n
+                %type%n
             </pattern>
         </encoder>
         <!--滚动策略-->

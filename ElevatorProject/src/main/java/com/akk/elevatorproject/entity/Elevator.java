@@ -1,5 +1,6 @@
 package com.akk.elevatorproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.Date;
@@ -24,8 +25,8 @@ public class Elevator {
     /**
      * 电梯状态（正常使用/停用/运行异常/严重故障/紧急故障）
      */
-    @Column(name = "elevator_state")
-    private Integer elevatorState;
+    @Column(name = "elevator_status")
+    private Integer elevatorStatus;
 
     /**
      * 出厂编号
@@ -38,11 +39,6 @@ public class Elevator {
      */
     @Column(name = "Install_company")
     private String installCompany;
-
-    /**
-     * 开发商联系电话
-     */
-    private String phone;
 
     /**
      * 层/站
@@ -65,6 +61,7 @@ public class Elevator {
     /**
      * 生产日期
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "production_date")
     private Date productionDate;
 
@@ -113,12 +110,14 @@ public class Elevator {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "create_time")
     private Date createTime;
 
     /**
      * 修改时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "last_edit_time")
     private Date lastEditTime;
 
@@ -163,17 +162,17 @@ public class Elevator {
      *
      * @return elevator_state - 电梯状态（正常使用/停用/运行异常/严重故障/紧急故障）
      */
-    public Integer getElevatorState() {
-        return elevatorState;
+    public Integer getElevatorStatus() {
+        return elevatorStatus;
     }
 
     /**
      * 设置电梯状态（正常使用/停用/运行异常/严重故障/紧急故障）
      *
-     * @param elevatorState 电梯状态（正常使用/停用/运行异常/严重故障/紧急故障）
+     * @param elevatorStatus 电梯状态（正常使用/停用/运行异常/严重故障/紧急故障）
      */
-    public void setElevatorState(Integer elevatorState) {
-        this.elevatorState = elevatorState;
+    public void setElevatorStatus(Integer elevatorStatus) {
+        this.elevatorStatus = elevatorStatus;
     }
 
     /**
@@ -210,24 +209,6 @@ public class Elevator {
      */
     public void setInstallCompany(String installCompany) {
         this.installCompany = installCompany;
-    }
-
-    /**
-     * 获取开发商联系电话
-     *
-     * @return phone - 开发商联系电话
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * 设置开发商联系电话
-     *
-     * @param phone 开发商联系电话
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     /**

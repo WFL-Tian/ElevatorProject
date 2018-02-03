@@ -70,6 +70,12 @@ public class User {
     private Integer userType;
 
     /**
+     * 是否是公司管理员
+     */
+    @Column(name = "if_c_admin")
+    private Integer ifCAdmin;
+
+    /**
      * 是否是审批人员
      */
     @Column(name = "if_sp_user")
@@ -230,6 +236,16 @@ public class User {
     public void setQq(String qq) {
         this.qq = qq;
     }
+
+
+    public Integer getIfCAdmin() {
+        return ifCAdmin;
+    }
+
+    public void setIfCAdmin(Integer ifCAdmin) {
+        this.ifCAdmin = ifCAdmin;
+    }
+
 
     /**
      * 获取账户状态,非管理员账户只有通过了审核才能使用.默认为未审核,值为0,通过审核后值改为1,如果未通过审核,改值为2.

@@ -16,8 +16,25 @@
     <result column="sh_status" property="shStatus" jdbcType="INTEGER" />
     <result column="company_id" property="companyId" jdbcType="INTEGER" />
     <result column="user_type" property="userType" jdbcType="INTEGER" />
+    <result column="if_c_admin" property="ifCAdmin" jdbcType="INTEGER"/>
     <result column="if_sp_user" property="ifSpUser" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+    <select id="selectUser" resultMap="BaseResultMap">
+        select * from tb_user
+        <where>
+            <if test="userType != null">
+                user_type = #{userType}
+            </if>
+            <if test="userType == null and userId != null">
+                user_id = #{userId}
+            </if>
+            <if test="userType == null and userId == null and companyId != null ">
+                company_id = #{companyId}
+            </if>
+        </where>
+    </select>
+
 </mapper>
