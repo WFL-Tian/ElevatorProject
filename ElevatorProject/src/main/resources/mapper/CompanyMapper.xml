@@ -19,4 +19,29 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+
+    <insert  id="insertCompany" parameterType="com.akk.elevatorproject.entity.Company"
+             useGeneratedKeys="true" keyProperty="companyId">
+
+        insert into tb_company(company_name,company_phone,company_email,company_sh_status,company_type,enterprisefax,company_address,legalrepresentative,legalrepresentative_phone,organization_code)
+        values(#{companyName},#{companyPhone},#{companyEmail},#{companyShStatus},#{companyType},#{enterprisefax},#{companyAddress},#{legalrepresentative},#{legalrepresentativePhone},#{organizationCode})
+
+    </insert >
+
+    <select id="selectCompany" resultMap="BaseResultMap">
+        select * from tb_company
+        <where>
+            <if test="companyType != null">
+                company_type = #{companyType}
+            </if>
+            <if test="companyShStatus != null">
+                and company_sh_status = #{companyShStatus}
+            </if>
+            <if test="companyType == null and companyShStatus == null">
+                company_id = #{companyId}
+            </if>
+        </where>
+    </select>
+
 </mapper>

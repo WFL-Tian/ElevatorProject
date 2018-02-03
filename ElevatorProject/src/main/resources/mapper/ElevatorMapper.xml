@@ -7,10 +7,9 @@
     -->
     <id column="elevator_id" property="elevatorId" jdbcType="VARCHAR" />
     <result column="elevator_type" property="elevatorType" jdbcType="INTEGER" />
-    <result column="elevator_state" property="elevatorState" jdbcType="INTEGER" />
+    <result column="elevator_status" property="elevatorStatus" jdbcType="INTEGER" />
     <result column="factory_number" property="factoryNumber" jdbcType="VARCHAR" />
     <result column="Install_company" property="installCompany" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="floor_levels" property="floorLevels" jdbcType="INTEGER" />
     <result column="admin_name" property="adminName" jdbcType="VARCHAR" />
     <result column="made_company" property="madeCompany" jdbcType="VARCHAR" />
@@ -25,4 +24,52 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+    <update id="developAllot">
+        UPDATE tb_elevator
+        <set>
+            wuye_id = #{wuyeId}
+        </set>
+        WHERE loupan_id = #{loupanId} AND develop_id = #{developId}
+    </update>
+
+    <update id="wuyeAllot">
+        UPDATE tb_elevator
+        <set>
+            weibao_id = #{weibaoId}
+        </set>
+        WHERE loupan_id = #{loupanId} AND wuye_id = #{wuyeId}
+    </update>
+
+    <select id="selectElevatorByLoupan" resultMap="BaseResultMap">
+        select * from tb_elevator WHERE loupan_id = #{loupanId}
+    </select>
+
+    <select id="selectElevator" resultMap="BaseResultMap">
+        select * from tb_elevator
+        <where>
+            <if test="elevator.elevatorStatus != null">
+                elevator_status = #{elevator.elevatorStatus}
+            </if>
+            <if test="elevator.elevatorStatus == null and elevator.elevatorType != null">
+                elevator_type = #{elevator.elevatorType}
+            </if>
+            <if test="elevator.weibaoId != null">
+                AND weibao_id = #{elevator.weibaoId}
+            </if>
+            <if test="elevator.developId != null">
+                AND develop_id = #{elevator.developId}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectElevatorByStatus" resultMap="BaseResultMap">
+        select * from tb_elevator
+        <where>
+            <if test="elevator.elevatorStatus != null">
+                elevator_status = #{elevator.elevatorStatus}
+            </if>
+        </where>
+    </select>
+
 </mapper>

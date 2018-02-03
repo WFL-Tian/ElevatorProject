@@ -10,6 +10,7 @@
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="elevator_status" property="elevatorStatus" jdbcType="INTEGER" />
     <result column="weibao_desc" property="weibaoDesc" jdbcType="VARCHAR" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
     <result column="last_edit_time" property="lastEditTime" jdbcType="TIMESTAMP" />
   </resultMap>
 </mapper>

@@ -40,6 +40,12 @@ public class Weibao {
     private String weibaoDesc;
 
     /**
+     * 创建时间
+     */
+    @Column(name = "creat_time")
+    private Date creatTime;
+
+    /**
      * 上次维保时间
      */
     @Column(name = "last_edit_time")

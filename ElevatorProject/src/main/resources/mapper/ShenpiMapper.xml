@@ -6,11 +6,29 @@
       WARNING - @mbggenerated
     -->
     <id column="shenpi_id" property="shenpiId" jdbcType="VARCHAR" />
-    <result column="develop_id" property="developId" jdbcType="INTEGER" />
+    <result column="company_id" property="companyId" jdbcType="INTEGER" />
     <result column="loupan_id" property="loupanId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="shenpi_time" property="shenpiTime" jdbcType="TIMESTAMP" />
     <result column="shenpi_status" property="shenpiStatus" jdbcType="INTEGER" />
     <result column="shenpi_result" property="shenpiResult" jdbcType="VARCHAR" />
   </resultMap>
+
+    <select id="selectShenpi" resultMap="BaseResultMap">
+        select * from tb_shenpi
+        <where>
+            <if test="shenpiStatus != null">
+                shenpi_status = #{shenpiStatus}
+            </if>
+            <if test="shenpiStatus == null and shenpiId != null">
+                shenpi_id = #{shenpiId}
+            </if>
+            <if test="shenpiStatus == null and shenpiId == null and loupanId != null">
+                loupan_id = #{loupanId}
+            </if>
+            <if test="shenpiStatus == null and shenpiId == null and loupanId == null and companyId != null">
+                company_id = #{companyId}
+            </if>
+        </where>
+    </select>
 </mapper>

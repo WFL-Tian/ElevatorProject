@@ -7,7 +7,42 @@
     -->
     <id column="loupan_id" property="loupanId" jdbcType="INTEGER" />
     <result column="loupan_addr" property="loupanAddr" jdbcType="VARCHAR" />
+    <result column="develop_id" property="developId" jdbcType="INTEGER" />
+    <result column="wuye_id" property="wuyeId" jdbcType="INTEGER" />
+    <result column="weibao_id" property="weibaoId" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+    <update id="developAllot">
+        UPDATE tb_loupan
+        <set>
+            wuye_id = #{wuyeId}
+        </set>
+        WHERE loupan_id = #{loupanId} AND develop_id = #{developId}
+    </update>
+
+    <update id="wuyeAllot">
+        UPDATE tb_loupan
+        <set>
+            weibao_id = #{weibaoId}
+        </set>
+        WHERE loupan_id = #{loupanId} AND wuye_id = #{wuyeId}
+    </update>
+
+
+    <select id="selectLoupan" resultMap="BaseResultMap">
+        select * from tb_loupan
+        <where>
+            <if test="loupan.developId != null">
+                develop_id = #{loupan.developId}
+            </if>
+            <if test="loupan.wuyeId != null">
+                wuye_id = #{loupan.wuyeId}
+            </if>
+            <if test="loupan.weibaoId != null">
+                weibao_id = #{loupan.weibaoId}
+            </if>
+        </where>
+    </select>
 </mapper>
