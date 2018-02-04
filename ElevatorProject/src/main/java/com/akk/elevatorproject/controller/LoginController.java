@@ -52,7 +52,7 @@ public class LoginController {
     private HttpSession session;
 
     /**
-     * ??????
+     * 登录入口
      */
     @RequestMapping
     public @ResponseBody
@@ -71,14 +71,14 @@ public class LoginController {
 
         if (userService.validate(user)&&session!=null){
             session.setAttribute(SessionKeyConst.USER_INFO, user);
-            //??????
-
+            
+			//返回 公司信息与账户信息
             CompanyAdminDto companyAdminDto = new CompanyAdminDto();
             companyAdminDto.setUser(user);
 
             if (ADMINISTRATOR.getCode().equals(user.getUserType())
                     ||ADMIN.getCode().equals(user.getUserType())){
-                //??????????��??
+                //管理员没有公司信息
             }else {
                 Company company = new Company();
                 company.setCompanyId(user.getCompanyId());
@@ -87,14 +87,14 @@ public class LoginController {
 
             return ResultVOUtil.success(companyAdminDto);
         }else{
-            //??????
+            //密码错误
             return ResultVOUtil.error(LOGIN_FAIL.getCode(),LOGIN_FAIL.getMsg());
         }
     }
 
 
     /**
-     *  ???
+     *  登出
      */
     @RequestMapping("/loginOut")
     public @ResponseBody
@@ -106,27 +106,29 @@ public class LoginController {
     @Autowired
     private Producer captchaProducer;
 
+	/**
+     *  验证码
+     */
     @RequestMapping("/verifycode")
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        // ???server?????
+        
         response.setDateHeader("Expires", 0);
-        // ???????? HTTP/1.1 no-cache headers.
+        
         response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
-        // ????IE??? HTTP/1.1 no-cache headers (use addHeader).
+        
         response.addHeader("Cache-Control", "post-check=0, pre-check=0");
-        // ?????? HTTP/1.0 ????????
+        
         response.setHeader("Pragma", "no-cache");
-        // ??????? jpeg ?????????text/html(????????MIMI????)
+        
         response.setContentType("image/jpeg");
-        // ??????????
+        
         String capText = captchaProducer.createText();
 
-        // ???????????session?��???????????��?????????
         request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
-        // ???????????????
+        
         BufferedImage bi = captchaProducer.createImage(capText);
         ServletOutputStream out = response.getOutputStream();
-        // ?????????
+        
         ImageIO.write(bi, "jpg", out);
         try {
             out.flush();
@@ -134,6 +136,7 @@ public class LoginController {
             out.close();
         }
 
+		//控制台显示验证码
         System.out.println("Session 验证码是:" + request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY));
         return null;
     }
